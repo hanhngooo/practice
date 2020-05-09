@@ -1,27 +1,27 @@
 const express = require("express");
 const data = require("./data.json");
-
-// console.log("data test:", data);
+const { patients, doctors } = data;
+// console.log("data test:", patients);
 
 const app = express();
 
+app.get("/", (request, response) => {
+  response.send(data);
+  // console.log("data", patients);
+});
 app.get("/patients", (request, response) => {
-  // const { patients } = data;
-  response.send("hah");
-  console.log("data");
+  response.send(patients);
+});
+app.get("/doctors", (request, response) => {
+  response.send(doctors);
+});
+app.get("/patients/:id", (request, response) => {
+  const { id } = request.params;
+  // console.log(id);
+  const patientId = patients.find((patient) => patient.id === id);
+  response.send(patientId);
 });
 
-// app.get("/user/:name", (request, response) => {
-//   // const name = request.params.name
-//   // const name = request.params['name']
-//   const { name } = request.params;
-
-//   console.log("name test:", name);
-
-//   const user = data[name];
-
-//   response.send(user);
-// });
 const port = 4000;
 
 const onListen = () => {

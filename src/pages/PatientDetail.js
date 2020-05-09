@@ -9,9 +9,7 @@ function PatientDetail() {
   useEffect(() => {
     async function fetchPatientByID(id) {
       console.log("id:", id);
-      const response = await axios.get(
-        `https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/patients/${id}`
-      );
+      const response = await axios.get(`http://localhost:4000/patients/${id}`);
       console.log(response.data);
       setPatient(response.data);
     }

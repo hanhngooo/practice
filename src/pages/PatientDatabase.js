@@ -8,9 +8,7 @@ function PatientDatabase() {
   const [filterValue, setFilterValue] = useState("all");
   useEffect(() => {
     async function fetchPatients() {
-      const response = await axios.get(
-        `https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/patients`
-      );
+      const response = await axios.get(`http://localhost:4000/patients`);
       // console.log(response.data);
       setPatients(response.data);
     }
@@ -23,7 +21,7 @@ function PatientDatabase() {
   });
   // fetch doctor data
 
-  const apiUrl = `https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/doctors`;
+  const apiUrl = `http://localhost:4000/doctors`;
   useEffect(() => {
     async function fetchdoctors() {
       const response = await axios.get(apiUrl);
