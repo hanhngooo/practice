@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ContactDetail from "../components/ContactDetail";
+import "./DoctorSchedule.css";
 
 function DoctorSchedule() {
   const [doctorDuty, setDoctorDuty] = useState([]);
@@ -24,7 +25,7 @@ function DoctorSchedule() {
   return (
     <div>
       <h2>Who is on Duty?</h2>
-      <table>
+      <table className="DoctorTable">
         <thead>
           <tr>
             <th>Doctor</th>

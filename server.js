@@ -4,6 +4,10 @@ const { patients, doctors } = data;
 // console.log("data test:", patients);
 
 const app = express();
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 app.get("/", (request, response) => {
   response.send(data);

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./PatientSignup.css";
 function PatientSignup() {
   const form = {
     firstname: "",
